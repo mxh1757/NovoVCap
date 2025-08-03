@@ -1,0 +1,295 @@
+import React from "react";
+import { Award, Users, Shield, TrendingUp, Building, Target } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+
+export default function About() {
+  const milestones = [
+    {
+      year: "2009",
+      title: "Foundation",
+      description: "Founded by former institutional investment professionals with $25M in initial capital commitment."
+    },
+    {
+      year: "2012",
+      title: "Growth Phase",
+      description: "Reached $100M AUM with consistent outperformance attracting high-net-worth investors."
+    },
+    {
+      year: "2015",
+      title: "Institutional Recognition",
+      description: "First pension fund allocation and family office partnerships established."
+    },
+    {
+      year: "2018",
+      title: "Technology Integration",
+      description: "Launch of proprietary quantitative research platform and AI-enhanced portfolio management."
+    },
+    {
+      year: "2021",
+      title: "Scale Achievement",
+      description: "Crossed $1B AUM milestone with industry-leading risk-adjusted returns."
+    },
+    {
+      year: "2024",
+      title: "Market Leadership",
+      description: "Over $3.8B AUM with top-tier performance across all strategies and market cycles."
+    }
+  ];
+
+  const leadership = [
+    {
+      name: "Alexander Chen",
+      title: "Founder & Chief Investment Officer",
+      background: "Former Portfolio Manager at Fidelity Investments with 20+ years in growth equity strategies. MBA from Wharton School.",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
+      expertise: "Growth Equity, Technology Investments"
+    },
+    {
+      name: "Sarah Williams",
+      title: "Chief Risk Officer & Managing Partner",
+      background: "Ex-BlackRock Senior Risk Analyst with expertise in quantitative risk management. PhD in Financial Mathematics from Stanford.",
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400",
+      expertise: "Risk Management, Quantitative Analysis"
+    },
+    {
+      name: "Michael Rodriguez",
+      title: "Head of Research & Portfolio Management",
+      background: "Former Goldman Sachs Vice President with deep experience in alternative investments and portfolio optimization.",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+      expertise: "Alternative Investments, Portfolio Strategy"
+    }
+  ];
+
+  const coreValues = [
+    {
+      icon: Target,
+      title: "Performance Excellence",
+      description: "Unwavering commitment to delivering superior risk-adjusted returns through disciplined investment processes."
+    },
+    {
+      icon: Shield,
+      title: "Fiduciary Responsibility",
+      description: "Acting as stewards of our clients' capital with the highest standards of integrity and transparency."
+    },
+    {
+      icon: Users,
+      title: "Client Partnership",
+      description: "Building long-term relationships through personalized service and aligned interests with our investors."
+    },
+    {
+      icon: TrendingUp,
+      title: "Innovation Leadership",
+      description: "Leveraging cutting-edge technology and research to maintain our competitive advantage in the market."
+    }
+  ];
+
+  const companyStats = [
+    { label: "Years of Excellence", value: "15+", description: "Consistent outperformance since inception" },
+    { label: "Investment Professionals", value: "28", description: "Experienced team with institutional background" },
+    { label: "Client Retention Rate", value: "94%", description: "Long-term relationships built on trust" },
+    { label: "Global Presence", value: "3", description: "Offices in NYC, London, and Singapore" }
+  ];
+
+  return (
+    <div>
+      {/* Hero Section */}
+      <section className="relative primary-gradient py-24">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920')] bg-cover bg-center opacity-20"></div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-8">
+            Built on Excellence,
+            <span className="text-emerald block">Driven by Results</span>
+          </h1>
+          <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            For over 15 years, NovoVentureCap has been delivering institutional-quality investment management 
+            to sophisticated investors, consistently outperforming benchmarks through disciplined strategies and innovative approaches.
+          </p>
+        </div>
+      </section>
+
+      {/* Company Story */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-slate-900 mb-8">Our Story</h2>
+              <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+                <p>
+                  NovoVentureCap was founded with a clear mission: to provide sophisticated investors access 
+                  to institutional-quality investment strategies that consistently deliver superior risk-adjusted returns.
+                </p>
+                <p>
+                  Our founding team, comprised of veterans from Fidelity, BlackRock, and Goldman Sachs, 
+                  recognized that the most effective investment approaches were often reserved for large 
+                  institutional clients, leaving qualified individual investors without access to these proven strategies.
+                </p>
+                <p>
+                  Today, we manage over $3.8 billion in assets, employing the same rigorous investment 
+                  processes and cutting-edge technology that drive the world's most successful institutional portfolios.
+                </p>
+                <p>
+                  Our track record speaks for itself: 16.4% compound annual growth rate over five years, 
+                  with a Sharpe ratio of 2.9 and client retention rate of 94%.
+                </p>
+              </div>
+            </div>
+            <div className="mt-12 lg:mt-0">
+              <img 
+                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800" 
+                alt="Modern investment office" 
+                className="rounded-3xl shadow-2xl hover-lift"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Company Statistics */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">NovoVentureCap by the Numbers</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Our growth and success metrics demonstrate our commitment to excellence and client satisfaction.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {companyStats.map((stat, index) => (
+              <Card key={index} className="hover-lift border-0 shadow-xl bg-white">
+                <CardContent className="p-8 text-center">
+                  <div className="text-5xl font-bold text-emerald-500 mb-4">{stat.value}</div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{stat.label}</h3>
+                  <p className="text-slate-600 leading-relaxed">{stat.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">Our Journey to Excellence</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              15 years of consistent growth, innovation, and market-leading performance.
+            </p>
+          </div>
+          
+          <div className="relative">
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full success-gradient rounded-full"></div>
+            <div className="space-y-12">
+              {milestones.map((milestone, index) => (
+                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+                  <div className={`flex-1 ${index % 2 === 0 ? 'lg:text-right lg:pr-12' : 'lg:text-left lg:pl-12'}`}>
+                    <Card className="hover-lift border-0 shadow-xl">
+                      <CardContent className="p-8">
+                        <div className="text-3xl font-bold text-emerald-500 mb-2">{milestone.year}</div>
+                        <h3 className="text-2xl font-bold text-slate-900 mb-4">{milestone.title}</h3>
+                        <p className="text-slate-600 leading-relaxed">{milestone.description}</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  <div className="w-6 h-6 success-gradient rounded-full border-4 border-white shadow-lg relative z-10"></div>
+                  <div className="flex-1"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Team */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">Leadership Team</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Experienced professionals with decades of institutional investment management expertise.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {leadership.map((leader, index) => (
+              <Card key={index} className="hover-lift border-0 shadow-xl overflow-hidden">
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={leader.image} 
+                    alt={leader.name}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">{leader.name}</h3>
+                  <p className="text-emerald-500 font-bold mb-4">{leader.title}</p>
+                  <p className="text-slate-600 leading-relaxed mb-4">{leader.background}</p>
+                  <div className="bg-slate-50 p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-slate-700">Expertise: {leader.expertise}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="py-24 primary-gradient">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-6">Our Core Values</h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              The principles that guide every decision and drive our commitment to client success.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {coreValues.map((value, index) => (
+              <Card key={index} className="hover-lift border-0 shadow-xl bg-white/10 backdrop-blur-sm border border-emerald-400/30">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-6 success-gradient rounded-2xl flex items-center justify-center shadow-lg">
+                    <value.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-4">{value.title}</h3>
+                  <p className="text-slate-300 leading-relaxed">{value.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Regulatory & Compliance */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <h3 className="text-2xl font-bold text-slate-900 mb-8">Regulatory Compliance & Oversight</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex items-center justify-center space-x-3">
+              <Shield className="w-8 h-8 text-emerald-500" />
+              <div>
+                <p className="font-bold text-slate-900">SEC Registered</p>
+                <p className="text-slate-600 text-sm">Investment Adviser</p>
+              </div>
+            </div>
+            <div className="flex items-center justify-center space-x-3">
+              <Award className="w-8 h-8 text-emerald-500" />
+              <div>
+                <p className="font-bold text-slate-900">FINRA Member</p>
+                <p className="text-slate-600 text-sm">Financial Industry Regulatory Authority</p>
+              </div>
+            </div>
+            <div className="flex items-center justify-center space-x-3">
+              <Building className="w-8 h-8 text-emerald-500" />
+              <div>
+                <p className="font-bold text-slate-900">SIPC Protected</p>
+                <p className="text-slate-600 text-sm">Securities Investor Protection Corporation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

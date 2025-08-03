@@ -1,0 +1,357 @@
+import React from "react";
+import { TrendingUp, BarChart3, Shield, Award, ArrowUp, Calendar } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+export default function Performance() {
+  const performanceData = [
+    {
+      fund: "Growth Equity Fund",
+      inception: "2018",
+      performance: {
+        ytd: "+19.7%",
+        oneYear: "+19.7%",
+        threeYear: "+17.2%",
+        fiveYear: "+16.8%",
+        sinceInception: "+18.1%"
+      },
+      benchmark: {
+        ytd: "+11.2%",
+        oneYear: "+11.2%",
+        threeYear: "+10.8%",
+        fiveYear: "+11.5%",
+        sinceInception: "+12.3%"
+      },
+      color: "from-blue-500 to-indigo-600"
+    },
+    {
+      fund: "Balanced Growth Fund",
+      inception: "2017",
+      performance: {
+        ytd: "+14.3%",
+        oneYear: "+14.3%",
+        threeYear: "+13.8%",
+        fiveYear: "+14.1%",
+        sinceInception: "+15.2%"
+      },
+      benchmark: {
+        ytd: "+8.9%",
+        oneYear: "+8.9%",
+        threeYear: "+9.2%",
+        fiveYear: "+9.8%",
+        sinceInception: "+10.1%"
+      },
+      color: "from-emerald-500 to-green-600"
+    },
+    {
+      fund: "Innovation Fund",
+      inception: "2019",
+      performance: {
+        ytd: "+26.1%",
+        oneYear: "+26.1%",
+        threeYear: "+22.4%",
+        fiveYear: "+24.7%",
+        sinceInception: "+23.8%"
+      },
+      benchmark: {
+        ytd: "+15.3%",
+        oneYear: "+15.3%",
+        threeYear: "+14.1%",
+        fiveYear: "+16.2%",
+        sinceInception: "+15.9%"
+      },
+      color: "from-purple-500 to-pink-600"
+    }
+  ];
+
+  const keyMetrics = [
+    {
+      metric: "5-Year CAGR",
+      value: "16.4%",
+      benchmark: "11.2%",
+      outperformance: "+5.2%",
+      icon: TrendingUp
+    },
+    {
+      metric: "Sharpe Ratio",
+      value: "2.9",
+      benchmark: "1.8",
+      outperformance: "+1.1",
+      icon: Shield
+    },
+    {
+      metric: "Maximum Drawdown",
+      value: "-4.2%",
+      benchmark: "-18.7%",
+      outperformance: "Better by 14.5%",
+      icon: BarChart3
+    },
+    {
+      metric: "Win Rate",
+      value: "87%",
+      benchmark: "64%",
+      outperformance: "+23%",
+      icon: Award
+    }
+  ];
+
+  const yearlyReturns = [
+    { year: "2023", growth: "+19.7%", balanced: "+14.3%", innovation: "+26.1%", sp500: "+11.2%" },
+    { year: "2022", growth: "+8.4%", balanced: "+6.2%", innovation: "+12.7%", sp500: "-18.1%" },
+    { year: "2021", growth: "+23.1%", balanced: "+18.6%", innovation: "+31.4%", sp500: "+28.7%" },
+    { year: "2020", growth: "+15.8%", balanced: "+12.4%", innovation: "+28.9%", sp500: "+18.4%" },
+    { year: "2019", growth: "+21.3%", balanced: "+16.7%", innovation: "+19.2%", sp500: "+31.5%" }
+  ];
+
+  const riskMetrics = [
+    {
+      title: "Volatility Management",
+      description: "Our funds consistently demonstrate lower volatility than benchmarks while delivering superior returns.",
+      stats: ["Growth Fund: 12.4% vs 16.8% (S&P 500)", "Balanced Fund: 8.7% vs 12.3% (Mixed Index)", "Innovation Fund: 18.2% vs 22.1% (Growth Index)"]
+    },
+    {
+      title: "Downside Protection",
+      description: "Sophisticated risk management protects capital during market downturns.",
+      stats: ["Average drawdown 65% lower than benchmarks", "Faster recovery times from market corrections", "Dynamic hedging strategies reduce tail risk"]
+    },
+    {
+      title: "Consistency",
+      description: "Reliable performance across different market environments and economic cycles.",
+      stats: ["Positive returns in 87% of quarters", "Outperformed benchmarks in 78% of periods", "Strong risk-adjusted returns over full cycles"]
+    }
+  ];
+
+  return (
+    <div>
+      {/* Hero Section */}
+      <section className="relative primary-gradient py-24">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920')] bg-cover bg-center opacity-20"></div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center">
+            <Badge className="performance-badge text-white px-8 py-3 text-lg font-bold mb-8 rounded-full">
+              🏆 Top 1% Performance Track Record
+            </Badge>
+            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-8">
+              Proven Performance
+              <span className="text-emerald block">Speaks for Itself</span>
+            </h1>
+            <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+              15+ years of consistent outperformance with superior risk-adjusted returns. 
+              See how our disciplined investment approach delivers results that matter.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Metrics Overview */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">Key Performance Metrics</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Our funds consistently outperform benchmarks while maintaining superior risk characteristics.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {keyMetrics.map((metric, index) => (
+              <Card key={index} className="hover-lift border-0 shadow-xl">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-6 success-gradient rounded-2xl flex items-center justify-center shadow-lg">
+                    <metric.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-3">{metric.metric}</h3>
+                  <div className="text-4xl font-bold text-emerald-500 mb-2">{metric.value}</div>
+                  <div className="text-sm text-slate-500 mb-2">vs {metric.benchmark} benchmark</div>
+                  <Badge variant="outline" className="border-emerald-500 text-emerald-700 text-xs">
+                    <ArrowUp className="w-3 h-3 mr-1" />
+                    {metric.outperformance}
+                  </Badge>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Performance Tables */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">Fund Performance Summary</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Comprehensive performance data across all time periods and investment strategies.
+            </p>
+          </div>
+          
+          <div className="space-y-8">
+            {performanceData.map((fund, index) => (
+              <Card key={index} className="hover-lift border-0 shadow-xl overflow-hidden">
+                <CardHeader className={`bg-gradient-to-r ${fund.color} text-white p-8`}>
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <CardTitle className="text-3xl font-bold mb-2">{fund.fund}</CardTitle>
+                      <p className="text-lg opacity-90">Since Inception: {fund.inception}</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-sm opacity-80">2023 Performance</div>
+                      <div className="text-4xl font-bold">{fund.performance.ytd}</div>
+                    </div>
+                  </div>
+                </CardHeader>
+                
+                <CardContent className="p-8">
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead>
+                        <tr className="border-b">
+                          <th className="text-left py-3 px-4 font-semibold text-slate-700">Period</th>
+                          <th className="text-center py-3 px-4 font-semibold text-emerald-600">Fund Return</th>
+                          <th className="text-center py-3 px-4 font-semibold text-slate-600">Benchmark</th>
+                          <th className="text-center py-3 px-4 font-semibold text-slate-700">Outperformance</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {Object.entries(fund.performance).map(([period, performance], periodIndex) => {
+                          const benchmarkValue = fund.benchmark[period];
+                          const outperformance = (parseFloat(performance.replace('%', '')) - parseFloat(benchmarkValue.replace('%', ''))).toFixed(1);
+                          return (
+                            <tr key={periodIndex} className="border-b hover:bg-slate-50">
+                              <td className="py-4 px-4 font-medium capitalize">
+                                {period.replace(/([A-Z])/g, ' $1').trim()}
+                              </td>
+                              <td className="py-4 px-4 text-center">
+                                <span className="text-2xl font-bold text-emerald-600">{performance}</span>
+                              </td>
+                              <td className="py-4 px-4 text-center">
+                                <span className="text-xl font-semibold text-slate-600">{benchmarkValue}</span>
+                              </td>
+                              <td className="py-4 px-4 text-center">
+                                <Badge className="success-gradient text-white px-3 py-1 text-sm font-bold">
+                                  +{outperformance}%
+                                </Badge>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Annual Returns */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">Annual Returns Comparison</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Year-by-year performance demonstrating consistent outperformance across market cycles.
+            </p>
+          </div>
+          
+          <Card className="hover-lift border-0 shadow-2xl">
+            <CardContent className="p-8">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b-2">
+                      <th className="text-left py-4 px-4 font-bold text-slate-700">
+                        <Calendar className="w-5 h-5 inline mr-2" />
+                        Year
+                      </th>
+                      <th className="text-center py-4 px-4 font-bold text-blue-600">Growth Equity</th>
+                      <th className="text-center py-4 px-4 font-bold text-emerald-600">Balanced Growth</th>
+                      <th className="text-center py-4 px-4 font-bold text-purple-600">Innovation Fund</th>
+                      <th className="text-center py-4 px-4 font-bold text-slate-600">S&P 500</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {yearlyReturns.map((year, index) => (
+                      <tr key={index} className="border-b hover:bg-slate-50">
+                        <td className="py-4 px-4 font-bold text-slate-900 text-lg">{year.year}</td>
+                        <td className="py-4 px-4 text-center">
+                          <span className="text-xl font-bold text-blue-600">{year.growth}</span>
+                        </td>
+                        <td className="py-4 px-4 text-center">
+                          <span className="text-xl font-bold text-emerald-600">{year.balanced}</span>
+                        </td>
+                        <td className="py-4 px-4 text-center">
+                          <span className="text-xl font-bold text-purple-600">{year.innovation}</span>
+                        </td>
+                        <td className="py-4 px-4 text-center">
+                          <span className="text-xl font-semibold text-slate-600">{year.sp500}</span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Risk Management */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">
+              Superior Risk Management
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Our investment approach prioritizes capital preservation while maximizing risk-adjusted returns.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {riskMetrics.map((risk, index) => (
+              <Card key={index} className="hover-lift border-0 shadow-xl">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4">{risk.title}</h3>
+                  <p className="text-slate-600 leading-relaxed mb-6">{risk.description}</p>
+                  <div className="space-y-3">
+                    {risk.stats.map((stat, statIndex) => (
+                      <div key={statIndex} className="flex items-center">
+                        <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3 flex-shrink-0"></div>
+                        <span className="text-slate-600 text-sm">{stat}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Disclaimers */}
+      <section className="py-16 primary-gradient">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <h3 className="text-2xl font-bold text-white mb-8 text-center">Performance Disclosures</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-300 text-sm">
+            <div className="space-y-2">
+              <p>• Past performance does not guarantee future results</p>
+              <p>• All investments involve risk of loss</p>
+              <p>• Performance figures are net of management fees</p>
+              <p>• Benchmarks: S&P 500 Total Return Index</p>
+            </div>
+            <div className="space-y-2">
+              <p>• Returns are calculated using time-weighted methodology</p>
+              <p>• Performance data audited by independent third party</p>
+              <p>• Individual results may vary based on timing and market conditions</p>
+              <p>• Please read full disclosure documents before investing</p>
+            </div>
+          </div>
+          <p className="text-center text-slate-400 text-sm mt-8">
+            NovoVentureCap is a SEC registered investment adviser. This information is for qualified investors only.
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+}

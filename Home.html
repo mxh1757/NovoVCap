@@ -1,0 +1,247 @@
+import React from "react";
+import { TrendingUp, Shield, Users, Award, ArrowRight, BarChart3, Target, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+
+export default function Home() {
+  const performanceStats = [
+    { label: "Assets Under Management", value: "$3.8B", icon: BarChart3, color: "text-emerald-500" },
+    { label: "5-Year CAGR", value: "16.4%", icon: TrendingUp, color: "text-emerald-500" },
+    { label: "Client Retention", value: "94%", icon: Users, color: "text-blue-500" },
+    { label: "Risk-Adjusted Returns", value: "2.9 Sharpe", icon: Shield, color: "text-purple-500" }
+  ];
+
+  const strategies = [
+    {
+      icon: Target,
+      title: "Growth Equity",
+      description: "Target 18-22% annual returns through high-growth companies with proven business models.",
+      performance: "+19.7% (2023)",
+      riskLevel: "Medium-High"
+    },
+    {
+      icon: Shield,
+      title: "Balanced Growth",
+      description: "Diversified portfolio targeting 12-16% returns with lower volatility and downside protection.",
+      performance: "+14.3% (2023)",
+      riskLevel: "Medium"
+    },
+    {
+      icon: Zap,
+      title: "Innovation Fund",
+      description: "Technology and innovation focus with potential for 20-30% returns through disruptive companies.",
+      performance: "+26.1% (2023)",
+      riskLevel: "High"
+    }
+  ];
+
+  const competitiveAdvantages = [
+    {
+      title: "Proven Track Record",
+      description: "15+ years of consistent outperformance across market cycles with disciplined risk management.",
+      stat: "16.4% CAGR"
+    },
+    {
+      title: "Institutional Quality",
+      description: "Same rigorous investment processes used by pension funds and endowments, now accessible to qualified investors.",
+      stat: "$3.8B AUM"
+    },
+    {
+      title: "Technology Edge",
+      description: "Proprietary AI-driven analytics and quantitative models enhance portfolio construction and risk assessment.",
+      stat: "2.9x Sharpe Ratio"
+    }
+  ];
+
+  return (
+    <div className="relative">
+      {/* Hero Section */}
+      <section className="relative primary-gradient overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1920')] bg-cover bg-center opacity-15"></div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-28 lg:py-36">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+            <div>
+              <Badge className="performance-badge text-white px-6 py-2 text-sm font-bold mb-6 rounded-full">
+                🏆 Top 1% Performance - 16.4% 5-Year CAGR
+              </Badge>
+              <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-8">
+                Superior Returns
+                <span className="text-emerald block">Through Discipline</span>
+              </h1>
+              <p className="text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl">
+                NovoVentureCap delivers institutional-grade investment management with consistent alpha generation. 
+                Our proven strategies have outperformed benchmarks by 4-6% annually while maintaining superior risk metrics.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6">
+                <Link to={createPageUrl("Solutions")}>
+                  <Button size="lg" className="success-gradient hover:opacity-90 text-white px-10 py-4 text-lg font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 hover-lift rounded-xl">
+                    Explore Investment Solutions
+                    <ArrowRight className="ml-3 w-6 h-6" />
+                  </Button>
+                </Link>
+                <Link to={createPageUrl("Performance")}>
+                  <Button size="lg" variant="outline" className="border-2 border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-white px-10 py-4 text-lg font-bold transition-all duration-300 rounded-xl">
+                    View Performance
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            
+            <div className="mt-16 lg:mt-0">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-emerald-400/30 shadow-2xl">
+                <h3 className="text-2xl font-bold text-white mb-8">2023 Performance Highlights</h3>
+                <div className="space-y-6">
+                  <div className="flex justify-between items-center py-3 border-b border-white/20">
+                    <span className="text-slate-300 font-medium">Growth Equity Fund</span>
+                    <span className="text-3xl font-bold text-emerald-400">+19.7%</span>
+                  </div>
+                  <div className="flex justify-between items-center py-3 border-b border-white/20">
+                    <span className="text-slate-300 font-medium">Balanced Growth Fund</span>
+                    <span className="text-3xl font-bold text-emerald-400">+14.3%</span>
+                  </div>
+                  <div className="flex justify-between items-center py-3 border-b border-white/20">
+                    <span className="text-slate-300 font-medium">Innovation Fund</span>
+                    <span className="text-3xl font-bold text-emerald-400">+26.1%</span>
+                  </div>
+                  <div className="flex justify-between items-center py-3">
+                    <span className="text-slate-300 font-medium">Benchmark (S&P 500)</span>
+                    <span className="text-2xl font-bold text-slate-400">+11.2%</span>
+                  </div>
+                </div>
+                <div className="mt-6 p-4 bg-emerald-500/20 rounded-xl border border-emerald-400/30">
+                  <p className="text-emerald-400 font-bold text-center">Outperformed benchmark by 8.5% average</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Performance Stats */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+              Institutional-Grade Performance
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Our track record speaks for itself - consistent outperformance with disciplined risk management.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {performanceStats.map((stat, index) => (
+              <Card key={index} className="hover-lift border-0 shadow-xl bg-white">
+                <CardContent className="p-8 text-center">
+                  <div className={`w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl flex items-center justify-center shadow-lg`}>
+                    <stat.icon className={`w-8 h-8 ${stat.color}`} />
+                  </div>
+                  <h3 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-3">{stat.value}</h3>
+                  <p className="text-slate-600 font-semibold text-lg">{stat.label}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Strategies */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+              Investment Solutions That
+              <span className="text-emerald block">Deliver Results</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Choose from our proven strategies designed to maximize risk-adjusted returns across different investment horizons.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {strategies.map((strategy, index) => (
+              <Card key={index} className="hover-lift border-0 shadow-xl bg-gradient-to-br from-white to-slate-50">
+                <CardContent className="p-10">
+                  <div className="w-20 h-20 mb-8 success-gradient rounded-2xl flex items-center justify-center shadow-lg">
+                    <strategy.icon className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4">{strategy.title}</h3>
+                  <p className="text-slate-600 leading-relaxed mb-6 text-lg">{strategy.description}</p>
+                  
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-500 font-medium">2023 Performance</span>
+                      <span className="text-2xl font-bold text-emerald-500">{strategy.performance}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-500 font-medium">Risk Level</span>
+                      <Badge variant="outline" className="border-emerald-500 text-emerald-700">
+                        {strategy.riskLevel}
+                      </Badge>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Competitive Advantages */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+              Why NovoVentureCap
+              <span className="text-emerald block">Outperforms</span>
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {competitiveAdvantages.map((advantage, index) => (
+              <Card key={index} className="hover-lift border-0 shadow-xl">
+                <CardContent className="p-10 text-center">
+                  <div className="text-6xl font-bold text-emerald-500 mb-6">{advantage.stat}</div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4">{advantage.title}</h3>
+                  <p className="text-slate-600 leading-relaxed text-lg">{advantage.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 primary-gradient">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <Badge className="performance-badge text-white px-8 py-3 text-lg font-bold mb-8 rounded-full">
+            ⚡ Minimum Investment: $250K for Qualified Investors
+          </Badge>
+          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-8">
+            Ready to Maximize Your Returns?
+          </h2>
+          <p className="text-xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+            Join sophisticated investors who demand superior performance. Our minimum investment of $250K 
+            provides access to institutional-quality strategies with the potential for 15-25% annual returns.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Link to={createPageUrl("Contact")}>
+              <Button size="lg" className="success-gradient hover:opacity-90 text-white px-12 py-5 text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 hover-lift rounded-xl">
+                Start Investing Today
+                <ArrowRight className="ml-3 w-6 h-6" />
+              </Button>
+            </Link>
+            <Link to={createPageUrl("Performance")}>
+              <Button size="lg" variant="outline" className="border-2 border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-white px-12 py-5 text-xl font-bold transition-all duration-300 rounded-xl">
+                View Detailed Performance
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

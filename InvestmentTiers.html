@@ -1,0 +1,235 @@
+import React from "react";
+import { Check, Star, Crown, Diamond } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+
+export default function InvestmentTiers() {
+  const tiers = [
+    {
+      name: "Core Alpha",
+      icon: Star,
+      minimum: "$1M",
+      description: "Diversified alternative strategies for sophisticated investors seeking consistent alpha generation.",
+      targetReturn: "10-15%",
+      volatility: "Low-Medium",
+      strategy: "Multi-strategy approach with focus on market-neutral and relative value opportunities",
+      features: [
+        "Quarterly liquidity",
+        "Monthly reporting",
+        "Access to quarterly calls",
+        "Dedicated client service",
+        "Minimum volatility targeting"
+      ],
+      color: "from-blue-500 to-indigo-600",
+      popular: false
+    },
+    {
+      name: "Institutional Plus",
+      icon: Crown,
+      minimum: "$5M",
+      description: "Enhanced strategies with broader mandate and higher return potential for institutional-size allocations.",
+      targetReturn: "15-20%",
+      volatility: "Medium",
+      strategy: "Expanded universe including private credit, special situations, and opportunistic investments",
+      features: [
+        "Monthly liquidity",
+        "Bi-weekly reporting",
+        "Direct PM access",
+        "Custom portfolio construction",
+        "ESG overlay options",
+        "Tax optimization strategies"
+      ],
+      color: "from-amber-500 to-yellow-500",
+      popular: true
+    },
+    {
+      name: "Elite Capital",
+      icon: Diamond,
+      minimum: "$25M",
+      description: "Bespoke investment solutions with the highest return potential and most sophisticated strategies.",
+      targetReturn: "20-30%",
+      volatility: "Medium-High",
+      strategy: "Full access to illiquid opportunities, co-investments, and proprietary deal flow",
+      features: [
+        "Flexible liquidity terms",
+        "Real-time reporting access",
+        "Co-investment opportunities",
+        "Bespoke strategy development",
+        "Direct partnership benefits",
+        "Family office services",
+        "Next-gen wealth planning"
+      ],
+      color: "from-purple-600 to-pink-600",
+      popular: false
+    }
+  ];
+
+  const riskDisclosures = [
+    "Past performance does not guarantee future results",
+    "All investments involve risk of loss",
+    "Minimum investment amounts apply",
+    "Limited liquidity and lock-up periods",
+    "Suitable for accredited investors only",
+    "Please read full offering documents"
+  ];
+
+  return (
+    <div>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 py-24">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920')] bg-cover bg-center opacity-20"></div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-8">
+            Investment Tiers
+            <span className="gold-accent block">Tailored to Your Capital</span>
+          </h1>
+          <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            Choose from three sophisticated investment strategies designed to maximize risk-adjusted returns 
+            across different capital allocation sizes and risk tolerances.
+          </p>
+        </div>
+      </section>
+
+      {/* Tiers Grid */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {tiers.map((tier, index) => (
+              <Card key={index} className={`relative hover-lift border-0 shadow-2xl overflow-hidden ${tier.popular ? 'ring-4 ring-amber-400 ring-opacity-50' : ''}`}>
+                {tier.popular && (
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <Badge className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-6 py-2 text-sm font-bold">
+                      MOST POPULAR
+                    </Badge>
+                  </div>
+                )}
+                
+                <CardHeader className={`bg-gradient-to-br ${tier.color} text-white p-8`}>
+                  <div className="flex items-center justify-between mb-4">
+                    <tier.icon className="w-8 h-8" />
+                    <div className="text-right">
+                      <div className="text-sm opacity-80">Minimum Investment</div>
+                      <div className="text-2xl font-bold">{tier.minimum}</div>
+                    </div>
+                  </div>
+                  <CardTitle className="text-3xl font-bold mb-4">{tier.name}</CardTitle>
+                  <p className="text-sm opacity-90 leading-relaxed">{tier.description}</p>
+                </CardHeader>
+                
+                <CardContent className="p-8">
+                  <div className="space-y-6">
+                    {/* Performance Metrics */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="text-center p-4 bg-slate-50 rounded-xl">
+                        <div className="text-sm text-slate-500 mb-1">Target Return</div>
+                        <div className="text-xl font-bold text-slate-900">{tier.targetReturn}</div>
+                      </div>
+                      <div className="text-center p-4 bg-slate-50 rounded-xl">
+                        <div className="text-sm text-slate-500 mb-1">Volatility</div>
+                        <div className="text-xl font-bold text-slate-900">{tier.volatility}</div>
+                      </div>
+                    </div>
+                    
+                    {/* Strategy */}
+                    <div>
+                      <h4 className="font-semibold text-slate-900 mb-3">Investment Strategy</h4>
+                      <p className="text-slate-600 leading-relaxed text-sm">{tier.strategy}</p>
+                    </div>
+                    
+                    {/* Features */}
+                    <div>
+                      <h4 className="font-semibold text-slate-900 mb-4">Key Features</h4>
+                      <div className="space-y-3">
+                        {tier.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-center">
+                            <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                            <span className="text-slate-600 text-sm">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* CTA Button */}
+                    <div className="pt-6">
+                      <Link to={createPageUrl("Contact")} className="block">
+                        <Button className={`w-full bg-gradient-to-r ${tier.color} hover:opacity-90 text-white py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300`}>
+                          Request Information
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Strategy Overview */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">Our Investment Approach</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Sophisticated strategies backed by rigorous research and institutional-grade execution.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                title: "Market Neutral",
+                description: "Long/short equity strategies that minimize market exposure while capturing alpha",
+                percentage: "35%"
+              },
+              {
+                title: "Relative Value",
+                description: "Arbitrage opportunities across fixed income, currencies, and derivatives",
+                percentage: "25%"
+              },
+              {
+                title: "Event Driven",
+                description: "Merger arbitrage, special situations, and distressed securities",
+                percentage: "25%"
+              },
+              {
+                title: "Opportunistic",
+                description: "Tactical allocations to emerging opportunities and private markets",
+                percentage: "15%"
+              }
+            ].map((strategy, index) => (
+              <Card key={index} className="hover-lift border-0 shadow-lg">
+                <CardContent className="p-8 text-center">
+                  <div className="text-4xl font-bold gold-accent mb-4">{strategy.percentage}</div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">{strategy.title}</h3>
+                  <p className="text-slate-600 leading-relaxed">{strategy.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Risk Disclosures */}
+      <section className="py-16 luxury-gradient">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <h3 className="text-2xl font-bold text-white mb-8 text-center">Important Disclosures</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {riskDisclosures.map((disclosure, index) => (
+              <div key={index} className="flex items-center text-slate-300">
+                <div className="w-2 h-2 bg-amber-400 rounded-full mr-3 flex-shrink-0"></div>
+                <span className="text-sm">{disclosure}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-slate-400 text-sm mt-8">
+            This information is for accredited investors only. Please consult with your financial advisor.
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+}

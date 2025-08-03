@@ -1,0 +1,308 @@
+import React from "react";
+import { Target, Shield, Zap, TrendingUp, Users, Award, ArrowRight, Check } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+
+export default function Solutions() {
+  const investmentSolutions = [
+    {
+      name: "Growth Equity Fund",
+      icon: Target,
+      minimumInvestment: "$250K",
+      targetReturn: "18-22%",
+      description: "Focused on high-growth companies with proven business models and strong competitive advantages.",
+      strategy: "Long-term equity positions in growth companies across technology, healthcare, and consumer sectors",
+      riskLevel: "Medium-High",
+      liquidity: "Quarterly",
+      performance2023: "+19.7%",
+      performance3Year: "+17.2%",
+      features: [
+        "Concentrated portfolio of 25-35 holdings",
+        "Emphasis on sustainable competitive advantages",
+        "ESG integration in investment process",
+        "Active engagement with management teams",
+        "Quarterly performance reporting"
+      ],
+      color: "from-blue-500 to-indigo-600",
+      popular: true
+    },
+    {
+      name: "Balanced Growth Fund",
+      icon: Shield,
+      minimumInvestment: "$250K",
+      targetReturn: "12-16%",
+      description: "Diversified portfolio balancing growth potential with downside protection through risk management.",
+      strategy: "Multi-asset approach combining equities, fixed income, and alternative investments",
+      riskLevel: "Medium",
+      liquidity: "Monthly",
+      performance2023: "+14.3%",
+      performance3Year: "+13.8%",
+      features: [
+        "Dynamic asset allocation",
+        "Downside protection mechanisms",
+        "Currency hedging when appropriate",
+        "Regular rebalancing discipline",
+        "Comprehensive risk monitoring"
+      ],
+      color: "from-emerald-500 to-green-600",
+      popular: false
+    },
+    {
+      name: "Innovation Fund",
+      icon: Zap,
+      minimumInvestment: "$500K",
+      targetReturn: "20-30%",
+      description: "High-conviction investments in transformative technologies and disruptive business models.",
+      strategy: "Early-stage growth companies and emerging technology leaders with exponential potential",
+      riskLevel: "High",
+      liquidity: "Semi-Annual",
+      performance2023: "+26.1%",
+      performance3Year: "+22.4%",
+      features: [
+        "Deep technology expertise",
+        "Access to pre-IPO opportunities",
+        "Venture capital partnerships",
+        "Innovation theme focus",
+        "Higher concentration tolerance"
+      ],
+      color: "from-purple-500 to-pink-600",
+      popular: false
+    }
+  ];
+
+  const processSteps = [
+    {
+      step: "01",
+      title: "Initial Consultation",
+      description: "Comprehensive assessment of your investment objectives, risk tolerance, and portfolio requirements."
+    },
+    {
+      step: "02",
+      title: "Strategy Selection",
+      description: "Recommendation of optimal investment solution based on your financial goals and timeline."
+    },
+    {
+      step: "03",
+      title: "Portfolio Construction",
+      description: "Custom portfolio implementation with ongoing monitoring and professional management."
+    },
+    {
+      step: "04",
+      title: "Performance Monitoring",
+      description: "Regular reporting, performance reviews, and strategic adjustments to maximize returns."
+    }
+  ];
+
+  const whyChooseUs = [
+    {
+      icon: Award,
+      title: "Top-Tier Performance",
+      description: "16.4% 5-year CAGR with consistent outperformance across market cycles.",
+      stat: "Top 1%"
+    },
+    {
+      icon: Shield,
+      title: "Risk Management",
+      description: "Advanced risk controls and downside protection strategies minimize portfolio volatility.",
+      stat: "2.9 Sharpe"
+    },
+    {
+      icon: Users,
+      title: "Client Focused",
+      description: "Personalized service with dedicated relationship managers and transparent communication.",
+      stat: "94% Retention"
+    }
+  ];
+
+  return (
+    <div>
+      {/* Hero Section */}
+      <section className="relative primary-gradient py-24">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1920')] bg-cover bg-center opacity-20"></div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-8">
+            Investment Solutions
+            <span className="text-emerald block">Built for Performance</span>
+          </h1>
+          <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            Choose from our proven investment strategies designed to deliver superior risk-adjusted returns 
+            through disciplined portfolio management and institutional-quality execution.
+          </p>
+        </div>
+      </section>
+
+      {/* Investment Solutions Grid */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {investmentSolutions.map((solution, index) => (
+              <Card key={index} className={`relative hover-lift border-0 shadow-2xl overflow-hidden ${solution.popular ? 'ring-4 ring-emerald-400 ring-opacity-50' : ''}`}>
+                {solution.popular && (
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <Badge className="success-gradient text-white px-6 py-2 text-sm font-bold rounded-full">
+                      MOST POPULAR
+                    </Badge>
+                  </div>
+                )}
+                
+                <CardHeader className={`bg-gradient-to-br ${solution.color} text-white p-8`}>
+                  <div className="flex items-center justify-between mb-4">
+                    <solution.icon className="w-10 h-10" />
+                    <div className="text-right">
+                      <div className="text-sm opacity-80">Minimum</div>
+                      <div className="text-2xl font-bold">{solution.minimumInvestment}</div>
+                    </div>
+                  </div>
+                  <CardTitle className="text-3xl font-bold mb-4">{solution.name}</CardTitle>
+                  <p className="text-sm opacity-90 leading-relaxed">{solution.description}</p>
+                </CardHeader>
+                
+                <CardContent className="p-8">
+                  <div className="space-y-6">
+                    {/* Performance Metrics */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="text-center p-4 bg-slate-50 rounded-xl">
+                        <div className="text-sm text-slate-500 mb-1">Target Return</div>
+                        <div className="text-2xl font-bold text-emerald-600">{solution.targetReturn}</div>
+                      </div>
+                      <div className="text-center p-4 bg-slate-50 rounded-xl">
+                        <div className="text-sm text-slate-500 mb-1">2023 Return</div>
+                        <div className="text-2xl font-bold text-emerald-600">{solution.performance2023}</div>
+                      </div>
+                    </div>
+
+                    {/* Key Details */}
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <span className="text-slate-500">Risk Level:</span>
+                        <div className="font-semibold text-slate-900">{solution.riskLevel}</div>
+                      </div>
+                      <div>
+                        <span className="text-slate-500">Liquidity:</span>
+                        <div className="font-semibold text-slate-900">{solution.liquidity}</div>
+                      </div>
+                    </div>
+                    
+                    {/* Strategy */}
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-3">Investment Strategy</h4>
+                      <p className="text-slate-600 leading-relaxed text-sm">{solution.strategy}</p>
+                    </div>
+                    
+                    {/* Features */}
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-4">Key Features</h4>
+                      <div className="space-y-2">
+                        {solution.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-start">
+                            <Check className="w-4 h-4 text-emerald-500 mr-2 mt-0.5 flex-shrink-0" />
+                            <span className="text-slate-600 text-sm">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* CTA Button */}
+                    <div className="pt-6">
+                      <Link to={createPageUrl("Contact")} className="block">
+                        <Button className={`w-full bg-gradient-to-r ${solution.color} hover:opacity-90 text-white py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300`}>
+                          Get Started
+                          <ArrowRight className="ml-2 w-5 h-5" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Process */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">Our Investment Process</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              A proven, systematic approach to investment management designed to maximize your success.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {processSteps.map((step, index) => (
+              <Card key={index} className="hover-lift border-0 shadow-lg relative">
+                <CardContent className="p-8 text-center">
+                  <div className="text-6xl font-bold text-emerald-500 mb-6">{step.step}</div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">{step.title}</h3>
+                  <p className="text-slate-600 leading-relaxed">{step.description}</p>
+                </CardContent>
+                {index < processSteps.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                    <ArrowRight className="w-8 h-8 text-emerald-500" />
+                  </div>
+                )}
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">
+              Why NovoVentureCap
+              <span className="text-emerald block">Delivers Results</span>
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {whyChooseUs.map((reason, index) => (
+              <Card key={index} className="hover-lift border-0 shadow-xl">
+                <CardContent className="p-10 text-center">
+                  <div className="w-20 h-20 mx-auto mb-6 success-gradient rounded-2xl flex items-center justify-center shadow-lg">
+                    <reason.icon className="w-10 h-10 text-white" />
+                  </div>
+                  <div className="text-4xl font-bold text-emerald-500 mb-4">{reason.stat}</div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4">{reason.title}</h3>
+                  <p className="text-slate-600 leading-relaxed text-lg">{reason.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 primary-gradient">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+            Ready to Start Investing?
+          </h2>
+          <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+            Take the next step towards superior investment returns. Our team is ready to help you 
+            select the optimal strategy for your financial objectives.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Link to={createPageUrl("Contact")}>
+              <Button size="lg" className="success-gradient hover:opacity-90 text-white px-12 py-5 text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 hover-lift rounded-xl">
+                Schedule Consultation
+                <ArrowRight className="ml-3 w-6 h-6" />
+              </Button>
+            </Link>
+            <Link to={createPageUrl("Performance")}>
+              <Button size="lg" variant="outline" className="border-2 border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-white px-12 py-5 text-xl font-bold transition-all duration-300 rounded-xl">
+                View Performance Data
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
